@@ -35,8 +35,8 @@ export const TotalClicks = ({ TotalClicks, ...props }) => {
                   Percentage < 0
                     ? 'error.main'
                     : Percentage === 0
-                      ? ''
-                      : 'success.main'
+                    ? ''
+                    : 'success.main'
                 }`,
                 height: 56,
                 width: 56,
