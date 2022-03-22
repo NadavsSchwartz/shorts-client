@@ -11,7 +11,8 @@ import 'aos/dist/aos.css';
 import { CircularProgress } from '@mui/material';
 import { Provider } from 'react-redux';
 import store from './store';
-ReactDOM.render(
+import { hydrate, render } from 'react-dom';
+const APP = (
   <BrowserRouter>
     <Provider store={store}>
       <Suspense
@@ -33,6 +34,11 @@ ReactDOM.render(
         </Page>
       </Suspense>
     </Provider>
-  </BrowserRouter>,
-  document.getElementById('root'),
+  </BrowserRouter>
 );
+const rootElement = document.getElementById('root');
+if (rootElement.hasChildNodes()) {
+  hydrate(APP, rootElement);
+} else {
+  render(APP, rootElement);
+}

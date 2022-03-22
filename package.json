@@ -9,7 +9,8 @@
         "build": "GENERATE_SOURCEMAP=false react-scripts build",
         "prettier:fix": "prettier './src/**/*.js' --write",
         "eslint:fix": "eslint ./src --fix",
-        "codeStyle:fix": "yarn prettier:fix && yarn eslint:fix"
+        "codeStyle:fix": "yarn prettier:fix && yarn eslint:fix",
+        "postbuild": "react-snap"
     },
     "browserslist": {
         "production": [
@@ -59,6 +60,7 @@
     "devDependencies": {
         "eslint": "^8.4.1",
         "prettier": "^2.5.1",
+        "react-snap": "^1.23.0",
         "typescript": "^4.5.4"
     }
 }
