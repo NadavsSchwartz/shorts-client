@@ -48,7 +48,7 @@ const Footer = () => {
           color="text.secondary"
           gutterBottom
         >
-          &copy; Shorts. 2021, All rights reserved.
+          &copy; Shorts. {2021}-{new Date().getFullYear()}, All rights reserved.
         </Typography>
       </Grid>
     </Grid>
