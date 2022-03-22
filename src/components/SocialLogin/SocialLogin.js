@@ -7,16 +7,11 @@ import { Divider } from '@mui/material';
 import PropTypes from 'prop-types';
 import { ReactComponent as TwitterLogo } from '../../assets/twitterLogo.svg';
 import GitHubIcon from '../../assets/GitHub.png';
+import { SocialAuth } from 'store/actions/userActions';
+import { connect, useDispatch } from 'react-redux';
 const SocialLogin = ({ Header, Subtitle }) => {
-  const googleLogin = () => {
-    window.open('/auth/google', '_self');
-  };
-  const twitterLogin = () => {
-    window.open('/auth/twitter', '_self');
-  };
-  const githubLogin = () => {
-    window.open('/auth/github', '_self');
-  };
+  const dispatch = useDispatch();
+
   return (
     <Box>
       <Box marginBottom={4}>
@@ -41,7 +36,10 @@ const SocialLogin = ({ Header, Subtitle }) => {
           {Subtitle}
         </Typography>
       </div>
-      <div onClick={googleLogin} style={{ margin: '10px 0 20px 0' }}>
+      <div
+        onClick={() => dispatch(SocialAuth('GoogleAuth'))}
+        style={{ margin: '10px 0 20px 0' }}
+      >
         <Button
           variant="contained"
           color="primary"
@@ -61,7 +59,10 @@ const SocialLogin = ({ Header, Subtitle }) => {
         </Button>
       </div>
       <Divider>OR</Divider>
-      <div onClick={twitterLogin} style={{ margin: '10px 0 20px 0' }}>
+      <div
+        onClick={() => dispatch(SocialAuth('TwitterAuth'))}
+        style={{ margin: '10px 0 20px 0' }}
+      >
         <Button
           variant="contained"
           color="primary"
@@ -74,7 +75,10 @@ const SocialLogin = ({ Header, Subtitle }) => {
         </Button>
       </div>
       <Divider>OR</Divider>
-      <div onClick={githubLogin} style={{ margin: '10px 0 20px 0' }}>
+      <div
+        onClick={() => dispatch(SocialAuth('GithubAuth'))}
+        style={{ margin: '10px 0 20px 0' }}
+      >
         <Button
           variant="contained"
           color="primary"
@@ -101,4 +105,7 @@ SocialLogin.propTypes = {
   Header: PropTypes.string.isRequired,
   Subtitle: PropTypes.string.isRequired,
 };
-export default SocialLogin;
+const mapDispatchToProps = (dispatch) => ({
+  SocialAuth: (strategy) => dispatch(SocialAuth(strategy)),
+});
+export default connect(mapDispatchToProps)(SocialLogin);

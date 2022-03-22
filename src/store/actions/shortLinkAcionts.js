@@ -1,19 +1,24 @@
 import axios from 'axios';
+import { API, getAxiosConfig } from 'consts';
 
 export const DELETE_LINK_REQUEST = 'DELETE_LINK_REQUEST';
 export const DELETE_LINK_SUCCESS = 'DELETE_LINK_SUCCESS';
 export const DELETE_LINK_FAIL = 'DELETE_LINK_FAIL';
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
+
 export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
   try {
     dispatch({
       type: DELETE_LINK_REQUEST,
     });
 
-    const { data } = await axios.delete('/delete/url', {
-      withCredentials: true,
-      data: { shortUrl: selectedLinksToDelete },
-    });
+    const { data } = await axios.delete(
+      `${BASE}${API.DeleteUrl}`,
+      {
+        data: { shortUrl: selectedLinksToDelete },
+      },
+      getAxiosConfig(),
+    );
 
     dispatch({
       type: DELETE_LINK_SUCCESS,
@@ -43,11 +48,11 @@ export const createShortLink = (longUrlToShorten) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      '/url',
+      `${BASE}${API.CreateUrl}`,
       {
         longUrl: longUrlToShorten,
       },
-      { withCredentials: true },
+      getAxiosConfig(),
     );
 
     dispatch({

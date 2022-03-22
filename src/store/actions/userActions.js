@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getAxiosConfig, API } from 'consts';
 
 export const USER_DETAILS_REQUEST = 'USER_DETAILS_REQUEST';
 export const USER_DETAILS_SUCCESS = 'USER_DETAILS_SUCCESS';
@@ -11,11 +12,10 @@ export const getUserDetails = () => async (dispatch) => {
       type: USER_DETAILS_REQUEST,
     });
 
-    const config = {
-      withCredentials: true,
-    };
-
-    const { data } = await axios.get(`me`, config);
+    const { data } = await axios.get(
+      `${API.BASE}${API.UserDetails}`,
+      getAxiosConfig(),
+    );
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -48,11 +48,10 @@ export const getUserStats = () => async (dispatch) => {
       type: USER_STATS_REQUEST,
     });
 
-    const config = {
-      withCredentials: true,
-    };
-
-    const { data } = await axios.get(`user/stats`, config);
+    const { data } = await axios.get(
+      `${API.BASE}${API.UserStats}`,
+      getAxiosConfig(),
+    );
 
     dispatch({
       type: USER_STATS_SUCCESS,
@@ -83,11 +82,10 @@ export const userLogOut = () => async (dispatch) => {
       type: USER_LOG_OUT_REQUEST,
     });
 
-    const config = {
-      withCredentials: true,
-    };
-
-    const { data } = await axios.get(`auth/logout`, config);
+    const { data } = await axios.get(
+      `${API.BASE}${API.LogoutUser}`,
+      getAxiosConfig(),
+    );
 
     window.location.href = '/';
     dispatch({
@@ -102,6 +100,24 @@ export const userLogOut = () => async (dispatch) => {
 
     dispatch({
       type: USER_LOG_OUT_FAIL,
+      payload: message,
+    });
+  }
+};
+
+export const USER_LOG_IN_FAIL = 'USER_LOG_IN_FAIL';
+
+export const SocialAuth = (strategy) => async (dispatch) => {
+  try {
+    await window.open(`${API.BASE}${API[strategy]}`, '_self');
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+
+    dispatch({
+      type: USER_LOG_IN_FAIL,
       payload: message,
     });
   }
