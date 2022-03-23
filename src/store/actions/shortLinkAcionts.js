@@ -7,6 +7,7 @@ export const DELETE_LINK_FAIL = 'DELETE_LINK_FAIL';
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
 
 export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
+  console.log(selectedLinksToDelete);
   try {
     dispatch({
       type: DELETE_LINK_REQUEST,
