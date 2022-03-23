@@ -13,7 +13,7 @@ export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
     });
 
     const { data } = await axios.delete(
-      `${BASE}${API.DeleteUrl}`,
+      `${API.BASE}${API.DeleteUrl}`,
       {
         data: { shortUrl: selectedLinksToDelete },
       },
@@ -48,7 +48,7 @@ export const createShortLink = (longUrlToShorten) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      `${BASE}${API.CreateUrl}`,
+      `${API.BASE}${API.CreateUrl}`,
       {
         longUrl: longUrlToShorten,
       },
