@@ -16,7 +16,7 @@ export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
     const { data } = await axios.delete(
       `${API.BASE}${API.DeleteUrl}/${urlId}`,
       {
-        headers: getAxiosConfig(),
+        withCredentials: true,
         data: { urlId: urlId },
       },
     );
