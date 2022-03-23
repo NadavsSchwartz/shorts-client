@@ -28,7 +28,7 @@ const Landing = () => {
   const { loading, error, stats } = userStats;
   const navigate = useNavigate();
   useEffect(() => {
-    if (!userLoading && user && user.email) navigate('/home');
+    if (!userLoading && user.email) navigate('/home');
     if (!loading && error !== null) {
       SetShowAlert(true);
       setTimeout(() => {

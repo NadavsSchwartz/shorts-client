@@ -7,13 +7,12 @@ export const DELETE_LINK_FAIL = 'DELETE_LINK_FAIL';
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
 
 export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
-  console.log(selectedLinksToDelete);
   try {
     dispatch({
       type: DELETE_LINK_REQUEST,
     });
     //todo - get actual urlId, this is bad hack
-    const urlId = selectedLinksToDelete.split('/')[3];
+    const urlId = selectedLinksToDelete.toString().split('/')[3];
     const { data } = await axios.delete(
       `${API.BASE}${API.DeleteUrl}/${urlId}`,
       {
