@@ -11,11 +11,14 @@ export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
     dispatch({
       type: DELETE_LINK_REQUEST,
     });
-
-    const { data } = await axios.delete(`${API.BASE}${API.DeleteUrl}`, {
-      headers: getAxiosConfig(),
-      data: { shortUrl: selectedLinksToDelete },
-    });
+    debugger;
+    const { data } = await axios.delete(
+      `${API.BASE}${API.DeleteUrl}/${urlId}`,
+      {
+        headers: getAxiosConfig(),
+        data: { urlId: selectedLinksToDelete.split('/')[3] },
+      },
+    );
 
     dispatch({
       type: DELETE_LINK_SUCCESS,
