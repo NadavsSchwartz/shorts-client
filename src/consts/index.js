@@ -5,7 +5,7 @@ export const API = {
   GithubAuth: '/auth/github',
   UserStats: '/user/stats',
   UserDetails: '/me',
-  DeleteUrl: '/delete/url',
+  DeleteUrl: '/delete',
   CreateUrl: '/url',
   LogoutUser: '/auth/logout',
 };
