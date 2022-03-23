@@ -12,8 +12,6 @@ export const API = {
 
 export const getAxiosConfig = (options) => ({
   ...options,
-  headers: {
-    ...options.headers,
-    withCredentials: true,
-  },
+
+  withCredentials: true,
 });

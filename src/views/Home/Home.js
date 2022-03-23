@@ -25,7 +25,7 @@ const Home = () => {
   const { loading, stats, error } = userStats;
   const [showAlert, SetShowAlert] = useState(false);
   useEffect(() => {
-    if (!userLoadingData && !user.email) navigate('/signin');
+    if (!userLoadingData && user && !user.email) navigate('/signin');
     if (!loading && error !== null) {
       SetShowAlert(true);
       setTimeout(() => {
