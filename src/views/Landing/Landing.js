@@ -6,17 +6,7 @@ import Container from 'components/Container';
 import { GetStarted, Features, Services, Hero, QuickStart } from './components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {
-  Alert,
-  Button,
-  Card,
-  CardContent,
-  CircularProgress,
-  Grid,
-  Typography,
-} from '@mui/material';
-import { SocialShare } from 'views/Home/components/SocialShare';
-import { format } from 'timeago.js';
+import { Alert, CircularProgress, Grid } from '@mui/material';
 import GuestShortLinkCard from './components/GuestShortLinkCard/GuestShortLinkCard';
 
 const Landing = () => {

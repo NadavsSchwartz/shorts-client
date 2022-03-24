@@ -5,11 +5,15 @@ import {
   CardContent,
   Grid,
   Typography,
+  useTheme,
 } from '@mui/material';
 import React from 'react';
 import { SocialShare } from 'views/Home/components/SocialShare';
+import PropTypes from 'prop-types';
+import { format } from 'timeago.js';
 
 const GuestShortLinkCard = ({ guestLink }) => {
+  const theme = useTheme();
   return (
     <Card
       sx={{
@@ -40,9 +44,9 @@ const GuestShortLinkCard = ({ guestLink }) => {
                   <Box component="span" fontWeight="800">
                     {guestLink && guestLink.shortUrl
                       ? guestLink.shortUrl.substring(
-                          7,
-                          guestLink.shortUrl.length,
-                        )
+                        7,
+                        guestLink.shortUrl.length,
+                      )
                       : ''}
                   </Box>
                 </Typography>
@@ -90,5 +94,7 @@ const GuestShortLinkCard = ({ guestLink }) => {
     </Card>
   );
 };
-
+GuestShortLinkCard.propTypes = {
+  guestLink: PropTypes.object.isRequired,
+};
 export default GuestShortLinkCard;
