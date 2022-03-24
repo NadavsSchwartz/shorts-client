@@ -14,6 +14,7 @@ import { format } from 'timeago.js';
 
 const GuestShortLinkCard = ({ guestLink }) => {
   const theme = useTheme();
+  const { mode } = theme.palette;
   return (
     <Card
       sx={{
@@ -40,11 +41,18 @@ const GuestShortLinkCard = ({ guestLink }) => {
                 href={guestLink && guestLink.shortUrl}
                 style={{ textDecoration: 'none' }}
               >
-                <Typography color={theme.palette.primary.dark} variant="body4">
+                <Typography
+                  color={
+                    mode === 'light'
+                      ? theme.palette.primary.dark
+                      : theme.palette.alternate.main
+                  }
+                  variant="body4"
+                >
                   <Box component="span" fontWeight="800">
                     {guestLink && guestLink.shortUrl
                       ? guestLink.shortUrl.substring(
-                        7,
+                        8,
                         guestLink.shortUrl.length,
                       )
                       : ''}
