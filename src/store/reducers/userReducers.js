@@ -1,7 +1,10 @@
 import {
-  CREATE_LINK_FAIL,
-  CREATE_LINK_REQUEST,
-  CREATE_LINK_SUCCESS,
+  USER_CREATE_LINK_FAIL,
+  USER_CREATE_LINK_REQUEST,
+  USER_CREATE_LINK_SUCCESS,
+  GUEST_CREATE_LINK_FAIL,
+  GUEST_CREATE_LINK_REQUEST,
+  GUEST_CREATE_LINK_SUCCESS,
   DELETE_LINK_FAIL,
   DELETE_LINK_REQUEST,
   DELETE_LINK_SUCCESS,
@@ -20,20 +23,28 @@ import {
   USER_STATS_SUCCESS,
 } from '../actions/userActions';
 
-export const userDetailsReducer = (state = { user: {} }, action) => {
+export const userDetailsReducer = (
+  state = { user: {}, authenticated: false },
+  action,
+) => {
   switch (action.type) {
     case USER_DETAILS_REQUEST:
       return { ...state, loading: true };
     case USER_DETAILS_SUCCESS:
-      return { ...state, loading: false, user: action.payload };
+      return {
+        ...state,
+        loading: false,
+        user: action.payload,
+        authenticated: true,
+      };
     case USER_DETAILS_FAIL:
       return { ...state, loading: false, error: action.payload };
     case USER_DETAILS_RESET:
-      return { user: {} };
+      return { ...state, user: {}, authenticated: false };
     case USER_LOG_OUT_REQUEST:
       return { ...state, loading: true };
     case USER_LOG_OUT_SUCCESS:
-      return { ...state, loading: false, user: {} };
+      return { ...state, loading: false, user: {}, authenticated: false };
     case USER_LOG_OUT_FAIL:
       return { ...state, loading: false, error: action.payload };
     default:
@@ -42,33 +53,46 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
 };
 
 export const userStatsReducer = (
-  state = { stats: {}, loading: false, error: null },
+  state = { stats: {}, loading: false, error: null, guestLink: {} },
   action,
 ) => {
   switch (action.type) {
     case USER_STATS_REQUEST:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     case USER_STATS_SUCCESS:
-      return { ...state, loading: false, stats: action.payload };
+      return { ...state, loading: false, stats: action.payload, error: null };
     case USER_STATS_FAIL:
       return { ...state, loading: false, error: action.payload };
-    case CREATE_LINK_REQUEST:
-      return { ...state, loading: true };
-    case CREATE_LINK_SUCCESS:
+    case USER_CREATE_LINK_REQUEST:
+      return { ...state, loading: true, error: null };
+    case USER_CREATE_LINK_SUCCESS:
       return {
         ...state,
         loading: false,
         stats: action.payload,
+        error: null,
       };
-    case CREATE_LINK_FAIL:
+    case USER_CREATE_LINK_FAIL:
+      return { ...state, loading: false, error: action.payload };
+    case GUEST_CREATE_LINK_REQUEST:
+      return { ...state, loading: true, error: null };
+    case GUEST_CREATE_LINK_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        guestLink: action.payload,
+        error: null,
+      };
+    case GUEST_CREATE_LINK_FAIL:
       return { ...state, loading: false, error: action.payload };
     case DELETE_LINK_REQUEST:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     case DELETE_LINK_SUCCESS:
       return {
         ...state,
         loading: false,
         stats: action.payload,
+        error: null,
       };
     case DELETE_LINK_FAIL:
       return { ...state, loading: false, error: action.payload };

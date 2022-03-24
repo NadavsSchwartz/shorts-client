@@ -17,18 +17,19 @@ import {
 } from '@mui/material';
 import { SocialShare } from 'views/Home/components/SocialShare';
 import { format } from 'timeago.js';
+import GuestShortLinkCard from './components/GuestShortLinkCard/GuestShortLinkCard';
 
 const Landing = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const [showAlert, SetShowAlert] = useState(false);
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading: userLoading, user } = userDetails;
+  const { loading: userLoading, user, authenticated } = userDetails;
   const userStats = useSelector((state) => state.userStats);
-  const { loading, error, stats } = userStats;
+  const { loading, error, guestLink } = userStats;
   const navigate = useNavigate();
   useEffect(() => {
-    if (!userLoading && user.email) navigate('/home');
+    if (!userLoading && authenticated && user.email) navigate('/home');
     if (!loading && error !== null) {
       SetShowAlert(true);
       setTimeout(() => {
@@ -55,7 +56,7 @@ const Landing = () => {
         )}
 
         <Hero />
-        {stats && Object.keys(stats).length !== 0 ? (
+        {guestLink && Object.keys(guestLink).length !== 0 ? (
           <Grid
             container
             spacing={4}
@@ -69,90 +70,7 @@ const Landing = () => {
               zIndex: 1,
             }}
           >
-            <Card
-              sx={{
-                height: 'auto',
-                width: '85%',
-                maxWidth: '700px',
-              }}
-            >
-              <CardContent>
-                <Grid container sx={{ justifyContent: 'space-between' }}>
-                  <Grid item>
-                    <Typography noWrap color="textPrimary" variant="body4">
-                      {stats && stats.longUrl}
-                    </Typography>
-                    <Grid
-                      item
-                      sx={{
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        width: '250px',
-                      }}
-                    >
-                      <a
-                        href={stats && stats.shortUrl}
-                        style={{ textDecoration: 'none' }}
-                      >
-                        <Typography
-                          color={theme.palette.primary.dark}
-                          variant="body4"
-                        >
-                          <Box component="span" fontWeight="800">
-                            {stats && stats.shortUrl
-                              ? stats.shortUrl.substring(
-                                  7,
-                                  stats.shortUrl.length,
-                                )
-                              : ''}
-                          </Box>
-                        </Typography>
-                      </a>
-                    </Grid>
-                  </Grid>
-
-                  <Grid item sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    Created: {format(stats && stats.createdAt)}
-                  </Grid>
-                </Grid>
-
-                <Grid container sx={{ justifyContent: 'center' }}>
-                  <Grid item>
-                    <Grid item sx={{ pt: 3 }}>
-                      <SocialShare data={stats && stats} />
-                    </Grid>
-
-                    <Grid item>
-                      <Typography
-                        color="textPrimary"
-                        variant="h6"
-                        fontWeight={700}
-                      >
-                        Get the most out of your links
-                      </Typography>
-                    </Grid>
-                    <Grid item sx={{ textAlign: 'center' }}>
-                      <Typography color="textPrimary" variant="subtitle2">
-                        Track all your links in one place
-                      </Typography>
-                    </Grid>
-                    <Grid item textAlign="center">
-                      <Button
-                        sx={{ mt: 2 }}
-                        component={'a'}
-                        href={'/signup'}
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        fullWidth={false}
-                      >
-                        Sign up free
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </CardContent>
-            </Card>
+            <GuestShortLinkCard guestLink={guestLink && guestLink} />
           </Grid>
         ) : (
           ''

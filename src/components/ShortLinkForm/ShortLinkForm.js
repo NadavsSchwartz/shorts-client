@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-// import Box from '@mui/material/Box';
-// import TextField from '@mui/material/TextField';
-// import Button from '@mui/material/Button';
+
 import Divider from '@mui/material/Divider';
 import PropTypes from 'prop-types';
-// import Typography from '@mui/material/Typography';
-// import { useTheme } from '@mui/material/styles';
+
 import { Alert, Button, InputBase, Paper } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import { useDispatch } from 'react-redux';
-import { createShortLink } from 'store/actions/shortLinkAcionts';
+
+import {
+  guestCreateShortLink,
+  userCreateShortLink,
+} from 'store/actions/shortLinkAcionts';
 import { Box } from '@mui/system';
+import { useDispatch, useSelector } from 'react-redux';
+
 const ShortLinkForm = ({ isLandingPage }) => {
-  // const theme = useTheme();
-  // const [shortenedLink] = useState([]);
+  const userDetails = useSelector((state) => state.userDetails);
+  const { user, authenticated } = userDetails;
+
   const dispatch = useDispatch();
   const [url, SetUrl] = useState('');
 
@@ -32,7 +35,10 @@ const ShortLinkForm = ({ isLandingPage }) => {
       const result = await url.match(urlRegex);
       console.log(result);
       if (result !== null) {
-        dispatch(createShortLink(url));
+        if (user && authenticated) dispatch(userCreateShortLink(url));
+        else {
+          dispatch(guestCreateShortLink(url));
+        }
       }
       console.log(error);
       SetUrl('');

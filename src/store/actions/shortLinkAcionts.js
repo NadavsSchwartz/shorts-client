@@ -38,14 +38,45 @@ export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
   }
 };
 
-export const CREATE_LINK_REQUEST = 'CREATE_LINK_REQUEST';
-export const CREATE_LINK_SUCCESS = 'CREATE_LINK_SUCCESS';
-export const CREATE_LINK_FAIL = 'CREATE_LINK_FAIL';
+export const GUEST_CREATE_LINK_REQUEST = 'CREATE_LINK_REQUEST';
+export const GUEST_CREATE_LINK_SUCCESS = 'CREATE_LINK_SUCCESS';
+export const GUEST_CREATE_LINK_FAIL = 'CREATE_LINK_FAIL';
 
-export const createShortLink = (longUrlToShorten) => async (dispatch) => {
+export const guestCreateShortLink = (longUrlToShorten) => async (dispatch) => {
   try {
     dispatch({
-      type: CREATE_LINK_REQUEST,
+      type: GUEST_CREATE_LINK_REQUEST,
+    });
+
+    const { data } = await axios.post(`${API.BASE}${API.CreateUrl}`, {
+      longUrl: longUrlToShorten,
+    });
+
+    dispatch({
+      type: GUEST_CREATE_LINK_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data
+        ? error.response.data
+        : error.message;
+
+    dispatch({
+      type: GUEST_CREATE_LINK_FAIL,
+      payload: message,
+    });
+  }
+};
+
+export const USER_CREATE_LINK_REQUEST = 'CREATE_LINK_REQUEST';
+export const USER_CREATE_LINK_SUCCESS = 'CREATE_LINK_SUCCESS';
+export const USER_CREATE_LINK_FAIL = 'CREATE_LINK_FAIL';
+
+export const userCreateShortLink = (longUrlToShorten) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_CREATE_LINK_REQUEST,
     });
 
     const { data } = await axios.post(
@@ -57,7 +88,7 @@ export const createShortLink = (longUrlToShorten) => async (dispatch) => {
     );
 
     dispatch({
-      type: CREATE_LINK_SUCCESS,
+      type: USER_CREATE_LINK_SUCCESS,
       payload: data,
     });
   } catch (error) {
@@ -67,7 +98,7 @@ export const createShortLink = (longUrlToShorten) => async (dispatch) => {
         : error.message;
 
     dispatch({
-      type: CREATE_LINK_FAIL,
+      type: USER_CREATE_LINK_FAIL,
       payload: message,
     });
   }

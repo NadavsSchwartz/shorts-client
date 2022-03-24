@@ -20,12 +20,12 @@ const Home = () => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading: userLoadingData, user } = userDetails;
+  const { loading: userLoadingData, user, authenticated } = userDetails;
   const userStats = useSelector((state) => state.userStats);
   const { loading, stats, error } = userStats;
   const [showAlert, SetShowAlert] = useState(false);
   useEffect(() => {
-    if (!userLoadingData && user && !user.email) navigate('/signin');
+    if (!userLoadingData && !authenticated && user) navigate('/signin');
     if (!loading && error !== null) {
       SetShowAlert(true);
       setTimeout(() => {

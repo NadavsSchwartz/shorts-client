@@ -15,7 +15,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { Alert, Button, Grid, Snackbar, Typography } from '@mui/material';
 import TrafficByState from '../TrafficByState';
 import { EnhancedTableHead, EnhancedTableToolbar } from './components';
-
+import { ReactComponent as IndividualNoLinks } from '../../../../assets/individualNoLinks.svg';
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -190,11 +190,7 @@ const EnhancedTable = ({ AllShortLinks }) => {
                               justifyContent="center"
                               alignItems="center"
                             >
-                              <img
-                                src="https://png2.cleanpng.com/sh/dfd8b508ed7f4b2c24498078edc7fed7/L0KzQYm4UcEzN6d2eZH0aYP2gLBuTfNwdaF6jNd7LXnmf7B6TfFld5NqRdt1bIX2hMPolP9zNZJzed5EdHnmg37sjvNieKR6Rdl7Znnmf37rhb1jaaN3eeU2aXPyfrF6TfdzaaVui59tZT3xdbj2gBlwe146etcENHblR4boWPJlOF87SKYEMki7SIK8VMIxOWcATaM8N0C8PsH1h5==/kisspng-computer-icons-adobe-illustrator-analytics-encapsu-grfico-de-barras-iconos-gratis-de-negocios-5be94fb75a8bd0.6049288815420169513709.png"
-                                alt="no analytics icon"
-                                width={100}
-                              />
+                              <IndividualNoLinks />
                             </Grid>
                             <Grid
                               container
