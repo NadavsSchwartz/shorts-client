@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import {
   Box,
   Button,
@@ -13,6 +14,8 @@ import PropTypes from 'prop-types';
 import { format } from 'timeago.js';
 
 const GuestShortLinkCard = ({ guestLink }) => {
+  // eslint-disable-next-line no-debugger
+  debugger;
   const theme = useTheme();
   const { mode } = theme.palette;
   return (
@@ -52,9 +55,9 @@ const GuestShortLinkCard = ({ guestLink }) => {
                   <Box component="span" fontWeight="800">
                     {guestLink && guestLink.shortUrl
                       ? guestLink.shortUrl.substring(
-                        8,
-                        guestLink.shortUrl.length,
-                      )
+                          8,
+                          guestLink.shortUrl.length,
+                        )
                       : ''}
                   </Box>
                 </Typography>
@@ -70,7 +73,7 @@ const GuestShortLinkCard = ({ guestLink }) => {
         <Grid container sx={{ justifyContent: 'center' }}>
           <Grid item>
             <Grid item sx={{ pt: 3 }}>
-              <SocialShare data={guestLink && guestLink} />
+              <SocialShare link={guestLink && guestLink} />
             </Grid>
 
             <Grid item>
