@@ -25,8 +25,8 @@ const Landing = () => {
   const [showAlert, SetShowAlert] = useState(false);
   const userDetails = useSelector((state) => state.userDetails);
   const { loading: userLoading, user, authenticated } = userDetails;
-  const userStats = useSelector((state) => state.userStats);
-  const { loading, error, guestLink } = userStats;
+  const guestLinks = useSelector((state) => state.guestLinks);
+  const { loading, error, guestLink } = guestLinks;
   const navigate = useNavigate();
   useEffect(() => {
     if (!userLoading && authenticated && user.email) navigate('/home');

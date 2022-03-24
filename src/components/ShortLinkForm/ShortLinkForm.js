@@ -35,7 +35,7 @@ const ShortLinkForm = ({ isLandingPage }) => {
       const result = await url.match(urlRegex);
       console.log(result);
       if (result !== null) {
-        if (user && authenticated) dispatch(userCreateShortLink(url));
+        if (user.email && authenticated) dispatch(userCreateShortLink(url));
         else {
           dispatch(guestCreateShortLink(url));
         }

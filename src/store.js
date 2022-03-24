@@ -5,10 +5,12 @@ import {
   userDetailsReducer,
   userStatsReducer,
 } from 'store/reducers/userReducers';
+import { guestLinkReducer } from 'store/reducers/shortLinkReducers';
 
 const reducer = combineReducers({
   userDetails: userDetailsReducer,
   userStats: userStatsReducer,
+  guestLinks: guestLinkReducer,
 });
 
 const initialState = {};

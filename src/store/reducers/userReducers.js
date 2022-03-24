@@ -2,9 +2,6 @@ import {
   USER_CREATE_LINK_FAIL,
   USER_CREATE_LINK_REQUEST,
   USER_CREATE_LINK_SUCCESS,
-  GUEST_CREATE_LINK_FAIL,
-  GUEST_CREATE_LINK_REQUEST,
-  GUEST_CREATE_LINK_SUCCESS,
   DELETE_LINK_FAIL,
   DELETE_LINK_REQUEST,
   DELETE_LINK_SUCCESS,
@@ -53,7 +50,7 @@ export const userDetailsReducer = (
 };
 
 export const userStatsReducer = (
-  state = { stats: {}, loading: false, error: null, guestLink: {} },
+  state = { stats: {}, loading: false, error: null },
   action,
 ) => {
   switch (action.type) {
@@ -74,17 +71,7 @@ export const userStatsReducer = (
       };
     case USER_CREATE_LINK_FAIL:
       return { ...state, loading: false, error: action.payload };
-    case GUEST_CREATE_LINK_REQUEST:
-      return { ...state, loading: true, error: null };
-    case GUEST_CREATE_LINK_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        guestLink: action.payload,
-        error: null,
-      };
-    case GUEST_CREATE_LINK_FAIL:
-      return { ...state, loading: false, error: action.payload };
+
     case DELETE_LINK_REQUEST:
       return { ...state, loading: true, error: null };
     case DELETE_LINK_SUCCESS:
