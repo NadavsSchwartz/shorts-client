@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import axios from 'axios';
 import { getAxiosConfig, API } from 'consts';
 
@@ -107,9 +108,29 @@ export const userLogOut = () => async (dispatch) => {
 
 export const USER_LOG_IN_FAIL = 'USER_LOG_IN_FAIL';
 
+const checkIfWindowOpensCorrectly = async (url) => {
+  const didWindowOpen = window.open(
+    url,
+    '_blank',
+    'toolbar=0,location=0,directories=0,status=1,menubar=0,titlebar=0,scrollbars=1,resizable=1',
+  );
+  if (didWindowOpen == null) {
+    return true;
+  } else {
+    document.location.href = url;
+  }
+
+  return false;
+};
+
 export const SocialAuth = (strategy) => async (dispatch) => {
   try {
-    await window.open(`${API.BASE}${API[strategy]}`, '_self');
+    await checkIfWindowOpensCorrectly(`${API.BASE}${API[strategy]}`);
+    if (!checkIfWindowOpensCorrectly)
+      dispatch({
+        type: USER_LOG_IN_FAIL,
+        payload: 'please turn of ad block',
+      });
   } catch (error) {
     const message =
       error.response && error.response.data.message
