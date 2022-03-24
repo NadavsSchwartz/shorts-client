@@ -1,4 +1,13 @@
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+} from '@mui/material';
 import React from 'react';
+import { SocialShare } from 'views/Home/components/SocialShare';
 
 const GuestShortLinkCard = ({ guestLink }) => {
   return (
