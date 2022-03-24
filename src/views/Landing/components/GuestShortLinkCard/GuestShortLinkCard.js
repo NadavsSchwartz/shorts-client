@@ -45,7 +45,7 @@ const GuestShortLinkCard = ({ guestLink }) => {
                   color={
                     mode === 'light'
                       ? theme.palette.primary.dark
-                      : theme.palette.alternate.main
+                      : theme.palette.primary.light
                   }
                   variant="body4"
                 >
