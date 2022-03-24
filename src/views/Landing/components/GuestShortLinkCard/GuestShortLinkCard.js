@@ -73,7 +73,7 @@ const GuestShortLinkCard = ({ guestLink }) => {
         <Grid container sx={{ justifyContent: 'center' }}>
           <Grid item>
             <Grid item sx={{ pt: 3 }}>
-              <SocialShare link={guestLink && guestLink} />
+              <SocialShare Link={guestLink && guestLink} />
             </Grid>
 
             <Grid item>
