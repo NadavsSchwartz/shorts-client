@@ -8,9 +8,9 @@ const SocialTargetBaseUrl = [
   { name: 'Reddit', value: 'https://www.reddit.com/submit?url=' },
   {
     name: 'WhatsApp',
-    value: isMobileOrTablet
-      ? `https://api.whatsapp.com/send?text=`
-      : `https://web.whatsapp.com/send?text=`,
+    value: `https://${
+      isMobileOrTablet() ? 'api' : 'web'
+    }.whatsapp.com/send?text=`,
   },
 ];
 
