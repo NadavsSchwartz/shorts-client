@@ -1,4 +1,4 @@
-<p align="center"><a href="https://shorten.domains" title="shorten.domain"><img src="https://shorten.domains/static/media/logo_transparent_background.8e36176e91b4a8c51997.png" alt="Shorts"></a></p>
+<p align="center"><a href="https://shorten.domains" title="shorten.domain"><img src="https://github.com/NadavsSchwartz/shorts-client/blob/main/src/assets/white_logo_transparent_background.png" alt="Shorts"></a></p>
 
 # Shorten.domains
 
