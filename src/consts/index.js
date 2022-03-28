@@ -8,6 +8,7 @@ export const API = {
   DeleteUrl: '/delete',
   CreateUrl: '/url',
   LogoutUser: '/auth/logout',
+  ContactUs: '/contact',
 };
 
 export const getAxiosConfig = (options) => ({
