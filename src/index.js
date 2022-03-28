@@ -11,6 +11,7 @@ import { CircularProgress } from '@mui/material';
 import { Provider } from 'react-redux';
 import store from './store';
 import { hydrate, render } from 'react-dom';
+
 const APP = (
   <BrowserRouter>
     <Provider store={store}>

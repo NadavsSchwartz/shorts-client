@@ -5,7 +5,7 @@ import {
   userDetailsReducer,
   userStatsReducer,
 } from 'store/reducers/userReducers';
-import { guestLinkReducer } from 'store/reducers/shortLinkReducers';
+import { guestLinkReducer } from 'store/reducers/guestReducer';
 
 const reducer = combineReducers({
   userDetails: userDetailsReducer,

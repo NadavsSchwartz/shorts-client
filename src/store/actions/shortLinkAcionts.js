@@ -38,9 +38,10 @@ export const deleteShortLink = (selectedLinksToDelete) => async (dispatch) => {
   }
 };
 
-export const GUEST_CREATE_LINK_REQUEST = 'CREATE_LINK_REQUEST';
-export const GUEST_CREATE_LINK_SUCCESS = 'CREATE_LINK_SUCCESS';
-export const GUEST_CREATE_LINK_FAIL = 'CREATE_LINK_FAIL';
+export const GUEST_CREATE_LINK_REQUEST = 'GUEST_CREATE_LINK_REQUEST';
+export const GUEST_CREATE_LINK_SUCCESS = 'GUEST_CREATE_LINK_SUCCESS';
+export const GUEST_CREATE_LINK_FAIL = 'GUEST_CREATE_LINK_FAIL';
+export const GUEST_LINK_RESET = 'GUEST_LINK_RESET';
 
 export const guestCreateShortLink = (longUrlToShorten) => async (dispatch) => {
   try {

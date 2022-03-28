@@ -1,4 +1,5 @@
 import React, { lazy } from 'react';
+import Contact from './contact';
 
 const Faq = lazy(() => import('./Faq'));
 const Home = lazy(() => import('./Home'));
@@ -32,6 +33,10 @@ const routes = [
   {
     path: '/signup',
     renderer: (params = {}) => <Signup {...params} />,
+  },
+  {
+    path: '/contact',
+    renderer: (params = {}) => <Contact {...params} />,
   },
 ];
 export default routes;
