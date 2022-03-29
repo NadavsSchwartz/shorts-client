@@ -5,6 +5,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const theme = useTheme();
@@ -31,17 +32,17 @@ const Footer = () => {
         justifyContent={'center'}
         alignItems={{ xs: 'stretched', sm: 'center' }}
       >
-        <Box
-          component={Button}
-          variant="outlined"
-          color="primary"
-          href="/contact"
-          size="large"
-          fullWidth={!isMd}
-          marginTop={{ xs: 1, sm: 0 }}
-          marginLeft={{ sm: 2 }}
-        >
-          Contact us
+        <Box component={Link} to="/contact" sx={{ textDecoration: 'none' }}>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            fullWidth={!isMd}
+            marginTop={{ xs: 1, sm: 0 }}
+            marginLeft={{ sm: 2 }}
+          >
+            Contact us
+          </Button>
         </Box>
       </Box>
     </Box>

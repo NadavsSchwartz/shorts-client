@@ -36,8 +36,8 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
       {user && !user.email ? (
         <Box
           display={'flex'}
-          component="a"
-          href={user && !user.email ? '/' : '/home'}
+          component={Link}
+          to={user && !user.email ? '/' : '/home'}
           title="Shorts"
           width={{ xs: 100, md: 120 }}
         >
@@ -53,8 +53,8 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
           <Box
             sx={{ display: { xs: 'none', md: 'flex' } }}
             display={'flex'}
-            component="a"
-            href={user && !user.email ? '/' : '/home'}
+            component={Link}
+            to={user && !user.email ? '/' : '/home'}
             title="Shorts"
             width={{ xs: 100, md: 120 }}
           >
@@ -73,7 +73,7 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
       )}
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box>
-          <Button component={'a'} href="/faq">
+          <Button component={Link} to="/faq">
             <Typography fontWeight={700} color="text.primary">
               {'FAQ'}
             </Typography>
@@ -82,17 +82,15 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
 
         <Box marginLeft={4}>
           {user && !user.email ? (
-            <Link to="/signin" style={{ textDecoration: 'none' }}>
-              <Button
-                variant="contained"
-                color="primary"
-                target="blank"
-                href="/signin"
-                size="large"
-              >
-                Sign In
-              </Button>
-            </Link>
+            <Button
+              component={Link}
+              variant="contained"
+              color="primary"
+              to="/signin"
+              size="large"
+            >
+              Sign In
+            </Button>
           ) : (
             <Box
               display={'flex'}
