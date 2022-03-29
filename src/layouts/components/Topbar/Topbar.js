@@ -37,7 +37,7 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
         <Box
           display={'flex'}
           component={Link}
-          to={user && !user.email ? '/' : '/home'}
+          to={'/'}
           title="Shorts"
           width={{ xs: 100, md: 120 }}
         >
@@ -54,7 +54,7 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
             sx={{ display: { xs: 'none', md: 'flex' } }}
             display={'flex'}
             component={Link}
-            to={user && !user.email ? '/' : '/home'}
+            to={'/home'}
             title="Shorts"
             width={{ xs: 100, md: 120 }}
           >
@@ -65,10 +65,11 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
               width={1}
             />
           </Box>
-
-          <Box width={isMd ? 0.5 : 0.7}>
-            <ShortLinkForm />
-          </Box>
+          {window.location.pathname === '/home' && (
+            <Box width={isMd ? 0.5 : 0.7}>
+              <ShortLinkForm />
+            </Box>
+          )}
         </>
       )}
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
