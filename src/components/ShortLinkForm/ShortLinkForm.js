@@ -44,14 +44,14 @@ const ShortLinkForm = ({ isLandingPage }) => {
 
     //run simple regex url validation
     const urlRegex =
-      /^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/gm;
+      /(https?:\/\/)?[\w\-~]+(\.[\w\-~]+)+(\/[\w\-~]*)*(#[\w\\-]*)?(\?.*)?/;
 
     //checks if input long url matches the regex validation of url
     const result = url.match(urlRegex);
 
     if (result === null) {
       SetError(`It looks like an invalid url. Please double check your input
-            and try again.`);
+          and try again.`);
       return setTimeout(() => {
         SetError('');
       }, 4000);
