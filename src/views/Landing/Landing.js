@@ -20,7 +20,7 @@ const Landing = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!userLoading && authenticated && user.email) navigate('/home');
-    if (!loading && error !== null) {
+    if (error !== null) {
       SetShowAlert(true);
       setTimeout(() => {
         SetShowAlert(false);
@@ -31,7 +31,11 @@ const Landing = () => {
   return (
     <Box sx={{ overflowX: 'hidden' }}>
       <Main>
-        {showAlert && <Alert severity="error">{error}</Alert>}
+        {showAlert && (
+          <Alert severity="error">
+            {error.message ? error.message : error}
+          </Alert>
+        )}
         {loading && (
           <CircularProgress
             sx={{
