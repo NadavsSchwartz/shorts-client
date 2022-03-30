@@ -77,6 +77,7 @@ For the configuration, the following variables have to be added in your `.env`-f
 - [GITHUB_CLIENT_ID(OAuth)](https://github.com/settings/applications)
 - [GITHUB_CLIENT_SECRET(OAuth)](https://github.com/settings/applications)
 - [GOOGLE_SECRET_KEY(Recaptcha)](https://developers.google.com/recaptcha)
+- [GOOGLE_SAFEBROWSING_API_KEY](https://developers.google.com/safe-browsing/v4/get-started)
 - [IPINFO_TOKEN(IP location data)](https://ipinfo.io/developers)
 
 ## Contributing
