@@ -1,6 +1,6 @@
 <p align="center"><a href="https://shorten.domains" title="shorten.domain"><img src="https://github.com/NadavsSchwartz/shorts-client/blob/main/src/assets/white_logo_transparent_background.png" alt="Shorts" width="350px"></a></p>
 
-# Shorten.domains
+# Shorts
 
 **Shorts** is a modern URL shortener with a dedicated dashboard to manage your links and view the click rate statistics.
 
