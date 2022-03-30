@@ -64,6 +64,10 @@ For the configuration, the following variables have to be added in your `.env`-f
   #### Back-end
 - MONGODB_URI(Connection string from MongoDB)
 - SESSION_SECRET(Secret for sessions)
+- MAIL_USER Your email user
+- MAIL_PASS Your email password
+- MAIL_HOST Your SMTP host
+- MAIL_PORT Your SMTP port
 - (OPTIONAL)WHITELISTED_DOMAINS - Array of whitelisted domains for cors
 - [GOOGLE_CLIENT_ID(OAuth)](https://console.cloud.google.com/apis/credentials)
 - [GOOGLE_CLIENT_SECRET(OAuth)](https://console.cloud.google.com/apis/credentials)
@@ -74,10 +78,6 @@ For the configuration, the following variables have to be added in your `.env`-f
 - [GITHUB_CLIENT_SECRET(OAuth)](https://github.com/settings/applications)
 - [GOOGLE_SECRET_KEY(Recaptcha)](https://developers.google.com/recaptcha)
 - [IPINFO_TOKEN(IP location data)](https://ipinfo.io/developers)
-- [MAIL_USER] Your email user
-- [MAIL_PASS] Your email password
-- [MAIL_HOST] Your SMTP host
-- [MAIL_PORT] Your SMTP port
 
 ## Contributing
 
