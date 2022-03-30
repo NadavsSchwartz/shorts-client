@@ -46,7 +46,11 @@ const Home = () => {
           margin: 'auto',
         }}
       >
-        {showAlert && <Alert severity="error">{error}</Alert>}
+        {showAlert && (
+          <Alert severity="error">
+            {error.message ? error.message : error}
+          </Alert>
+        )}
         {loading ? (
           <CircularProgress
             style={{
