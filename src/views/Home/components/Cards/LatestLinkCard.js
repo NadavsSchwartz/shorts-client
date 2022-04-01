@@ -18,7 +18,7 @@ export const LatestLinkCard = ({ LatestLink }) => {
             <Grid container sx={{ justifyContent: 'space-between' }}>
               <Grid item>
                 <Typography color="textPrimary" variant="body4">
-                  Destination:
+                  Your last Short link
                 </Typography>
                 <Grid
                   item
@@ -45,7 +45,11 @@ export const LatestLinkCard = ({ LatestLink }) => {
                 </Grid>
               </Grid>
 
-              <Grid item sx={{ display: { xs: 'none', md: 'block' } }}>
+              <Grid
+                item
+                sx={{ display: { xs: 'none', md: 'block' } }}
+                style={{ textTransform: 'capitalize' }}
+              >
                 Created: {timeAgo}
               </Grid>
             </Grid>
@@ -80,7 +84,7 @@ export const LatestLinkCard = ({ LatestLink }) => {
       ) : (
         <Box sx={{ textAlign: 'center', m: 2 }}>
           <NoLinksSvg />
-          <Typography> Start by creating Your first Short Link</Typography>
+          <Typography> Start by creating your first Short Link.</Typography>
         </Box>
       )}
     </Card>

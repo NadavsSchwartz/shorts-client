@@ -99,7 +99,7 @@ const SocialShare = ({ Link }) => {
         </Grid>
       </Grid>
       <Dialog onClose={handleChange} open={openDialog}>
-        <DialogTitle>Your newly Generated QR Code</DialogTitle>{' '}
+        <DialogTitle>Your QR Code</DialogTitle>{' '}
         <Grid
           container
           direction="row"

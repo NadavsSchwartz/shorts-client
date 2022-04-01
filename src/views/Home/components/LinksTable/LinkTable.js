@@ -200,9 +200,13 @@ const EnhancedTable = ({ AllShortLinks }) => {
                                 justifyContent: 'center',
                               }}
                             >
-                              <Typography variant="caption">
+                              <Typography
+                                variant="caption"
+                                sx={{ fontWeight: 'bold' }}
+                              >
                                 {' '}
-                                Analytics appear after links are visited
+                                Analytics will appear after links have been
+                                visited
                               </Typography>
                             </Grid>
                           </Grid>
@@ -227,8 +231,10 @@ const EnhancedTable = ({ AllShortLinks }) => {
                               )
                           }
                         >
-                          {Link.shortUrl}
-                          <ContentCopyIcon />
+                          {Link.shortUrl}{' '}
+                          <span style={{ marginLeft: '3px', marginTop: '5px' }}>
+                            <ContentCopyIcon />
+                          </span>
                         </Button>
                       </TableCell>
                       <TableCell

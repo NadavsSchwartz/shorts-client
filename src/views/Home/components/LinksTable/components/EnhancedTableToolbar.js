@@ -39,7 +39,7 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-          Links Data
+          Your Personal Dashboard
         </Typography>
       )}
 

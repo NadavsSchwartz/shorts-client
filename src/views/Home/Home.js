@@ -112,7 +112,7 @@ const Home = () => {
                           <NoLinks />
                         </Box>
                         <Typography variant="h5" textAlign="center">
-                          {"There haven't been any clicks yet"}
+                          {'Waiting for clicks to come...'}
                         </Typography>
                       </Box>
                     )}

@@ -14,16 +14,16 @@ const headCells = [
   },
   {
     id: 'createdAt',
-    label: 'Date',
+    label: 'Creation Date',
     responsive: true,
   },
   {
     id: 'totalClicks',
-    label: 'Clicks',
+    label: 'Total Clicks',
   },
   {
     id: 'shortUrl',
-    label: 'Short Url',
+    label: 'Short URL',
   },
   {
     id: 'longUrl',
