@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 const mock = [
   {
     title: '100',
-    subtitle: 'links shortened weekly with Shorts.',
+    subtitle: 'Links shortened weekly with Shorts.',
     suffix: '+',
   },
   {
@@ -24,7 +24,7 @@ const mock = [
   {
     title: 100,
     subtitle:
-      'links can be created FREELY every day as a user, or up to 30 as a guest.',
+      'Links can be created FREELY every day as a user or up to 30 as a guest.',
     suffix: '',
   },
 ];
