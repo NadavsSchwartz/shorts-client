@@ -105,7 +105,7 @@ const ShortLinkForm = ({ isLandingPage }) => {
           <InputBase
             autoComplete="on"
             sx={{ ml: 1, flex: 1 }}
-            placeholder="Long link to shorten..."
+            placeholder="Long URL to cut short..."
             name="url"
             value={url}
             required
