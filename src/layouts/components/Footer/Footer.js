@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 // import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import LightLogo from '../../../assets/logo_transparent_background.png';
-import DarkLogo from '../../../assets/white_logo_transparent_background.png';
+import LightLogo from '../../../assets/shortslogoLightmode.svg';
+import DarkLogo from '../../../assets/shortslogoDarkmode.svg';
 import { useSelector } from 'react-redux';
 
 const Footer = () => {

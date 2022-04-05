@@ -4,8 +4,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
-import LightLogo from '../../../assets/logo_transparent_background.png';
-import DarkLogo from '../../../assets/white_logo_transparent_background.png';
+import LightLogo from '../../../assets/shortslogoLightmode.svg';
+import DarkLogo from '../../../assets/shortslogoDarkmode.svg';
 import ThemeModeToggler from 'components/ThemeModeToggler';
 import { Avatar, Typography, useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -39,7 +39,7 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
           component={Link}
           to={'/'}
           title="Shorts"
-          width={{ xs: 100, md: 120 }}
+          width={{ xs: 100, md: 80 }}
         >
           <Box
             component={'img'}

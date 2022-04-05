@@ -30,9 +30,9 @@ const QuickStart = () => {
             sx={{ fontWeight: 400 }}
             align={'center'}
           >
-            you can make a request with the long url you desire to shorten
-            directly to our api, making it easy to implement it within your app,
-            you can even shorten urls from the command line!
+            You can make a request with the long URL you desire to shorten
+            directly to our API, making it easy to implement it within your app.
+            You can even shorten URLs from the command line!
           </Typography>
         </Box>
       </Box>
