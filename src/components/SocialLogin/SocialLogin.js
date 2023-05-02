@@ -2,11 +2,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Divider } from '@mui/material';
-import PropTypes from 'prop-types';
-import { ReactComponent as TwitterLogo } from '../../assets/twitterLogo.svg';
-import GitHubIcon from '../../assets/GitHub.png';
+import Typography from '@mui/material/Typography'; 
+import PropTypes from 'prop-types'; 
 import { SocialAuth } from 'store/actions/userActions';
 import { connect, useDispatch } from 'react-redux';
 const SocialLogin = ({ Header, Subtitle }) => {
