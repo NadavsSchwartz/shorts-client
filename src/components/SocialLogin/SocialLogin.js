@@ -58,45 +58,6 @@ const SocialLogin = ({ Header, Subtitle }) => {
           <span style={{ marginTop: '1px' }}>Google</span>
         </Button>
       </div>
-      <Divider>OR</Divider>
-      <div
-        onClick={() => dispatch(SocialAuth('TwitterAuth'))}
-        style={{ margin: '10px 0 20px 0' }}
-      >
-        <Button
-          variant="contained"
-          color="primary"
-          target="blank"
-          size="large"
-          fullWidth
-        >
-          <TwitterLogo style={{ marginRight: '10px' }} />
-          <span style={{ marginTop: '1px' }}>Twitter</span>
-        </Button>
-      </div>
-      <Divider>OR</Divider>
-      <div
-        onClick={() => dispatch(SocialAuth('GithubAuth'))}
-        style={{ margin: '10px 0 20px 0' }}
-      >
-        <Button
-          variant="contained"
-          color="primary"
-          target="blank"
-          size="large"
-          fullWidth
-        >
-          <img
-            width={21}
-            height={20}
-            style={{ marginRight: '10px' }}
-            src={GitHubIcon}
-            alt="Github Logo"
-          />
-          {'  '}
-          <span style={{ marginTop: '1px' }}>Github</span>
-        </Button>
-      </div>
     </Box>
   );
 };
