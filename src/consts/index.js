@@ -1,5 +1,5 @@
 export const API = {
-  BASE: 'https://sds.sh',
+  BASE: 'https://shorts-api.up.railway.app',
   GoogleAuth: '/auth/google',
   TwitterAuth: '/auth/twitter',
   GithubAuth: '/auth/github',
